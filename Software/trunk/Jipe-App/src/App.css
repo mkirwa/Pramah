@@ -162,3 +162,16 @@
     transform: rotate(360deg);
   }
 }
+
+.buttonForm {
+  /*margin: 15px;*/
+  margin-left: 5px;
+  /*margin-right: 0px;
+  display: inline-block;*/
+}
+.divider {
+  /*width: 5px;*/
+  /*height: auto;*/
+  margin-right: 5px;
+  display: inline-​block;
+}

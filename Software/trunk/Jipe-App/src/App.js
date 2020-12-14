@@ -2,6 +2,8 @@ import React from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import TextField from "material-ui/TextField";
+import Popup from "reactjs-popup";
+
 //import RaisedButton from "material-ui/RaisedButton";
 import { Route, Switch } from "react-router-dom";
 import LoginBox from "./components/login/loginbox";
@@ -40,6 +42,7 @@ import ArrivalBoL from "./components/driver/arrivalbol";
 import DriverLoads from "./components/driver/driverloads";
 import Drivers from "./components/driver/drivers";
 
+import MapContainer from "./components/maps/MapContainer";
 import Dispatch from "./components/dispatchs/dispatch";
 import DispatchLoads from "./components/dispatchs/dispatchloads";
 import DispatchNavbar from "./components/dispatchs/dispatchnavbar";
@@ -56,8 +59,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Select from "react-select";
 import firebase from "./config/firebase";
 
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+
 class App extends React.Component {
-  state = {
+  //state = {
     //instead of hard coding all the counters in the render method
     //div section,
     //just use an array instead and render them using the map method
@@ -65,16 +70,15 @@ class App extends React.Component {
     //add a new property allcomponents
     // Use this to uniquely identify each
     //counter
-    step: 1,
-    firstName: "",
-    lastName: "",
-    email: "",
-    occupation: "",
-    city: "",
-
-    bio: "",
-    companyName: "",
-  };
+    //step: 1,
+    //firstName: "",
+    //lastName: "",
+    //email: "",
+    //occupation: "",
+    //city: "",
+    //bio: "",
+    //companyName: "",
+ // };
 
   //calling constructor to bind event handlers to the
   //component and initilize the local state of the component
@@ -107,6 +111,7 @@ class App extends React.Component {
       } else {
         this.setState({ user: null });
         //localStorage.removeItem("user");
+        //alert('Incorrect Username or Password');
       }
     });
   }
@@ -138,6 +143,7 @@ class App extends React.Component {
     //be it firstName, lastName, whatever value is entered
     this.setState({ [input]: e.target.value });
   };
+
 
   render() {
     //render method
@@ -232,6 +238,7 @@ class App extends React.Component {
                 <Route path="/driver/driverloads" component={DriverLoads} />
 
                 <Route path="/login/loginpage" component={LoginPage} />
+                <Route path="/maps/MapContainer" component={MapContainer}/>
               </Switch>
             ) : (
               <LoginPage />
@@ -243,26 +250,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
-
-//<NavBar
-// totalCounters={
-// this.state.allcomponents.filter(c => c.value > 0).length
-// }
-///>
-
-//handleChange = input => e => {
-//take whatever the input is
-//set it to whatever the value is
-//we can get that using the event parameter and using target.value
-//be it firstName, lastName, whatever value is entered
-//this.setState({ [input]: e.target.value });
+//const styles = {
+  //button: {
+    //margin: 15,
+  //},
 //};
 
-//showLoginBox() {
-//this.setState({isLoginOpen: true, isRegisterOpen: false});
-//}
-
-//showRegisterBox() {
-//this.setState({isRegisterOpen: true, isLoginOpen: false});
-//}
+export default App;

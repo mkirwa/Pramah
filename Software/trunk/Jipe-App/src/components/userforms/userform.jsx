@@ -6,6 +6,7 @@ import Confirm from "./confirm";
 import Success from "./success";
 
 class UserForm extends Component {
+  //Reorganize this to make sure that
   state = {
     step: 1,
     firstName: "",
@@ -18,8 +19,9 @@ class UserForm extends Component {
     zipCode: "",
     sSN: "",
     drivingLicense: "",
-    age: "",
-    error: {
+    age: ""
+    
+    /*error: {
       firstName: "",
       lastName: "",
       email: "",
@@ -31,7 +33,7 @@ class UserForm extends Component {
       sSN: "",
       drivingLicense: "",
       age: "",
-    },
+    },*/
   };
 
   //has a method to proceed to the next step
@@ -61,7 +63,7 @@ class UserForm extends Component {
     this.setState({ [input]: e.target.value });
   };
 
-  handleValidation = () => {
+  /* handleValidation = () => {
     const {
       firstName,
       lastName,
@@ -75,36 +77,7 @@ class UserForm extends Component {
       drivingLicense,
       age,
     } = this.state;
-    let errors = {
-      firstName: "",
-      lastName: "",
-      streetAddress: "",
-      email: "",
-      streetAddress: "",
-      apt: "",
-      city: "",
-      state: "",
-      zipCode: "",
-      sSN: "",
-      drivingLicense: "",
-      age: "",
-    };
-
-    if (!firstName) {
-      errors.firstName = "Name is required";
-      //} else if (isNaN(price)) {
-      //errors.price = "Price must be a number";
-      //}
-
-      // if (!downP) {
-      // errors.downP = "Down Payment is required";
-      //}
-
-      // Rest of validation conditions go here...
-
-      this.setState({ errors });
-    }
-  };
+  };*/
 
   //figure out what
   //step we are on and depending on what step we are on
@@ -114,11 +87,12 @@ class UserForm extends Component {
     const { step } = this.state;
     const {
       firstName,
+      middleName,
       lastName,
-      streetAddress,
       email,
+      streetAddress,
       apt,
-      city,
+      city,  
       state,
       zipCode,
       sSN,
@@ -129,16 +103,17 @@ class UserForm extends Component {
     //render them into the inputs
     const values = {
       firstName,
+      middleName,
       lastName,
-      streetAddress,
       email,
+      streetAddress,
       apt,
       city,
       state,
-      zipCode,
+      zipCode,   
       sSN,
       drivingLicense,
-      age,
+      age,    
     };
 
     //we are making a case for each number so we use a switch instead
@@ -155,7 +130,7 @@ class UserForm extends Component {
             nextStep={this.nextStep}
             handleChange={this.handleChange}
             values={values}
-            styles={styles}
+            //styles={styles}
           />
         );
       case 2:
@@ -169,7 +144,7 @@ class UserForm extends Component {
             prevStep={this.prevStep}
             handleChange={this.handleChange}
             values={values}
-            styles={styles}
+            //styles={styles}
           />
         );
       case 3:
@@ -182,7 +157,7 @@ class UserForm extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
-            styles={styles}
+            //styles={styles}
           />
         );
       case 4:
@@ -191,10 +166,10 @@ class UserForm extends Component {
   }
 }
 
-const styles = {
-  button: {
-    margin: 15,
-  },
-};
+//const styles = {
+//button: {
+//margin: 15,
+//},
+//};
 
 export default UserForm;

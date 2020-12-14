@@ -93,6 +93,17 @@ class Confirm extends Component {
               <br />
               <div>
                 <Button
+                  color="secondary"
+                  variant="contained"
+                  //style={styles.button}
+                  //we put contiue up above and what contiunue does
+                  //is call the next step of userForm and we do that through
+                  //props
+                  onClick={this.back}
+                >
+                  Back
+                </Button>
+                <Button
                   color="primary"
                   variant="contained"
                   //we put contiue up above and what contiunue does
@@ -105,20 +116,6 @@ class Confirm extends Component {
                 </Button>
               </div>
               <br />
-              <div>
-                <Button
-                  color="secondary"
-                  variant="contained"
-                  //style={styles.button}
-                  //we put contiue up above and what contiunue does
-                  //is call the next step of userForm and we do that through
-                  //props
-                  onClick={this.back}
-                >
-                  Back
-                </Button>
-              </div>
-              <br />
             </React.Fragment>
           </div>
         </Dialog>
@@ -127,10 +124,10 @@ class Confirm extends Component {
   }
 }
 
-const styles = {
-  button: {
-    margin: 15,
-  },
-};
+//const styles = {
+//button: {
+//margin: 15,
+//},
+//};
 
 export default Confirm;
